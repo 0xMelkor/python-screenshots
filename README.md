@@ -37,7 +37,8 @@ You should follow these steps:
 2. Open a terminal
 3. `cd` into the project folder
 4. Create a virtualenv `virtualenv dirname`, this will create a python2.7 virtualenv under the `dirname` folder
-5. Install app dependencies with `pip install -r requirements.txt`
+5. Activate the virtualenv by running`path-to-your-virtualenv/Scripts/activate`
+6. Install app dependencies with `pip install -r requirements.txt`
 
 ## Run
 You should follow these steps:
