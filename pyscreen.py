@@ -1,26 +1,9 @@
-"""
-          __                 __    
-  _______/  |______    ____ |  | __
- /  ___/\   __\__  \ _/ ___\|  |/ /
- \___ \  |  |  / __ \\  \___|    < 
-/____  > |__| (____  /\___  >__|_ \
-     \/            \/     \/     \/
-                             .__                         
-  ______ _____ _____    _____|  |__   ___________  ______
- /  ___//     \\__  \  /  ___/  |  \_/ __ \_  __ \/  ___/
- \___ \|  Y Y  \/ __ \_\___ \|   Y  \  ___/|  | \/\___ \ 
-/____  >__|_|  (____  /____  >___|  /\___  >__|  /____  >
-     \/      \/     \/     \/     \/     \/           \/ 
-
-@author: Andrea Simeoni 
-@date: 12/07/2017
-"""
-
 import sys
 import os
 import pyscreenshot as ImageGrab
 import pythoncom, pyHook
 import time
+import threading
 
 
 def printScreen():
@@ -31,7 +14,8 @@ def printScreen():
 
 
 def right_down(event):
-    printScreen()
+    t = threading.Thread(target=printScreen) #added to queue
+    t.start()
     return True
 
 
@@ -48,4 +32,3 @@ if __name__ == "__main__":
     hm.HookMouse()
     pythoncom.PumpMessages()
     hm.UnhookMouse()
-    
